@@ -12,7 +12,7 @@ include "./trees/checkRoot.circom";
 
 // TODO: rename the inputs so that they are more intuitive
 
-template QuadHackathonResults(
+template QuadHackaPrizeResult(
     // The depth of the full state tree
     fullStateTreeDepth,
     // The depth of the intermediate state tree
@@ -329,3 +329,5 @@ template ResultCommitmentVerifier(voteOptionTreeDepth) {
 
     newResultsCommitment <== newResultsCommitmentHasher.hash;
     }
+    
+    
