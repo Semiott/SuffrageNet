@@ -8,7 +8,7 @@ include "./trees/calculateTotal.circom";
 include "./trees/checkRoot.circom";
 include "./quadVoteTally.circom"
 
-template QuadHackPrizeResult() {
+template QuadHackPrizeResultGenerator() {
 
     signal private input ParticipantPublicKey;
     signal private input OrganizerPublicKey;
@@ -26,4 +26,39 @@ template QuadHackPrizeResult() {
     PrizeSponsorPublishedPending <== -aux + AttendeeInput;
 }
 
-component main = QuadHackPrizeResult();
+component main = QuadHackPrizeResultGenerator();
+
+
+template ResultCommitmentVerifier(voteOptionTreeDepth) {
+    var numVoteOptions = 5 ** voteOptionTreeDepth;
+
+    signal input currentResultsSalt;
+    signal input currentResultsCommitment;
+    signal input currentResults[numVoteOptions];
+
+    signal input newResultsSalt;
+    signal input newResults[numVoteOptions];
+    signal output newResultsCommitment;
+
+    // Salt and hash the results up to the current batch
+    component currentResultsTree = QuinCheckRoot(voteOptionTreeDepth);
+    component newResultsTree = QuinCheckRoot(voteOptionTreeDepth);
+    for (var i = 0; i < numVoteOptions; i++) {
+        newResultsTree.leaves[i] <== newResults[i];
+        currentResultsTree.leaves[i] <== currentResults[i];
+    }
+
+    component currentResultsCommitmentHasher = HashLeftRight();
+    currentResultsCommitmentHasher.left <== currentResultsTree.root;
+    currentResultsCommitmentHasher.right <== currentResultsSalt;
+
+    // Also salt and hash the result of the current batch
+    component newResultsCommitmentHasher = HashLeftRight();
+    newResultsCommitmentHasher.left <== newResultsTree.root;
+    newResultsCommitmentHasher.right <== newResultsSalt;
+
+    // Check if the salted hash of the results up to the current batch is valid
+    currentResultsCommitment === currentResultsCommitmentHasher.hash;
+
+    newResultsCommitment <== newResultsCommitmentHasher.hash;
+}
