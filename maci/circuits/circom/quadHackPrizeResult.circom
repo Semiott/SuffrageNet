@@ -9,17 +9,21 @@ include "./trees/checkRoot.circom";
 include "./quadVoteTally.circom"
 
 template QuadHackPrizeResult() {
+
     signal private input ParticipantPublicKey;
     signal private input OrganizerPublicKey;
     signal input OrganizerReviewInput;
-    signal input ProjectIdentifier;
     signal input AttendeeInput;
+    signal input ProjectIdentifier;
+    
     signal output PrizeSponsorPublishedResults;
+    signal output PrizeSponsorPublishedPending;
 
-    PrizeSponsorPublishedResults <== AttendeInput + OrganizerReviewInput;
+    signal aux;
+
+    aux <== (OrganizerReviewInput-AttendeeInput)*ProjectIdentifier;   
+    PrizeSponsorPublishedResults <==  aux + OrganizerReviewInput;
+    PrizeSponsorPublishedPending <== -aux + AttendeeInput;
 }
 
 component main = QuadHackPrizeResult();
-
-    
-    
