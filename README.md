@@ -1,18 +1,12 @@
 # SuffrageNet
 Computational Integrity Information Architecture for Electronic Voting using Zero Knowledge Proof Frameworks.
 
-# Components
-- Minimal Anti Collusion Infrastructure (MACI)
-- Semaphone Signalling Infrastructure (SSI)
-- Circom Gadget for Zero Knowledge Proofs
-
 ## Inspiration
 
-Concept of Quadratic Voting and how it can help to address the voice of minorities.
-Following privacy preserving computational integrity information architectures are also inspirations.
+Concept of Quadratic Voting and how it can help to address the voice of minorities. Quadratic voting is a collective decision-making procedure where individuals allocate votes to express the degree of their preferences, rather than just the direction of their preferences. By doing so, quadratic voting helps enable users to address issues of voting paradox and majority rule. Following privacy preserving computational integrity information architectures are also inspirations.
 
-Minimal Anti Collusion Infrastructure from Applied ZKP
-Semaphore Signaling Framework from Applied ZKP
+- Minimal Anti Collusion Infrastructure from Applied ZKP
+- Semaphore Signaling Framework from Applied ZKP
 
 ## What it does
 
