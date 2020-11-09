@@ -10,31 +10,31 @@ Concept of Quadratic Voting and how it can help to address the voice of minoriti
 
 ## What it does
 
-Generates a prover - verifier infrastructure for constructing the proofs of minority votes.
-Generated privacy preserving vote infrastructure using Zero Knowledge Proofs
-Ability to execute Quadratic Voting Algorithms to make sure minority voices are addressed
+- Generates a prover - verifier infrastructure for constructing the proofs of minority votes.
+- Generated privacy preserving vote infrastructure using Zero Knowledge Proofs
+- Ability to execute Quadratic Voting Algorithms to make sure minority voices are addressed
 
 ## How I built it
 
-Circom Circuit Compiler generated computational integrity proofs
-Proofs are generated in Web Assembly. Proofs are translated to Solidity Smart Contracts. 
+- Circom Circuit Compiler generated computational integrity proofs
+- Proofs are generated in Web Assembly. Proofs are translated to Solidity Smart Contracts. 
 
 ## Challenges I ran into
-Compilation of Semaphore Smart Contracts.
+- Compilation of Semaphore Smart Contracts.
 
 ## Accomplishments that I'm proud of
 
-Integration of Semaphore Framework into Electronic Voting
-Identification of Quadratic Voting Concept for Minority Voting
+- Integration of Semaphore Framework into Electronic Voting
+- Identification of Quadratic Voting Concept for Minority Voting
 
 ## What I learned
 
-Power of Zero Knowledge Proofs
-Power of Semaphore Signaling Framework
-Power of Quadratic Voting Concept
+- Power of Zero Knowledge Proofs
+- Power of Semaphore Signaling Framework
+- Power of Quadratic Voting Concept
 
-## What's next for SaffrageNet
+## What's next for SuffrageNet
 
-Deployment into Matic Network
-Development of a Wallet
-Development of a Dashboard
+- Deployment into Matic Network
+- Development of a Wallet
+- Development of a Dashboard
